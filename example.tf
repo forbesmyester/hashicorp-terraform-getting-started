@@ -24,6 +24,11 @@ resource "aws_eip" "ip" {
     instance = "${aws_instance.example.id}"
 }
 
+module "with-net" {
+    source = "./with-net"
+    net-quad-2 = 2
+}
+
 output "ip" {
     // Outputs stuff to the screen... nice!
     value = "${aws_eip.ip.public_ip}"
