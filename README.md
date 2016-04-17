@@ -10,11 +10,13 @@ Downloaded Terraform from [here](https://releases.hashicorp.com/terraform/0.6.14
 
 Extracted and install Terraform.
 
-    mkdir terraform-bin
-    cd terraform-bin
-    unzip /tmp/terraform_0.6.14_linux_amd64.zip
-    cd ../
-    export PATH=$PATH:terraform-bin
+```bash
+mkdir terraform-bin
+cd terraform-bin
+unzip /tmp/terraform_0.6.14_linux_amd64.zip
+cd ../
+export PATH=$PATH:terraform-bin
+```
 
 I then followed through all the tutorials from the [Terraform Getting Started Tutorial](https://www.terraform.io/intro/getting-started/install.html) except Modules.
 
@@ -28,14 +30,20 @@ There are, at the most basic level three things in Terraform you'll want to do t
 
  * Check what those configuration files will do. This is is easy:
 
-    terraform plan -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```bash
+terraform plan -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```
 
  * Use those configuration files to launch infrastructure
 
-    terraform apply -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```bash
+terraform apply -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```
 
 Later on you'll probably want to destroy your infrastructure so you no longer get charged:
 
-    terraform apply -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```bash
+terraform apply -var "aws_access_key_id=$AWS_ACCESS_KEY_ID" -var "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY"
+```
 
 Think I'll need to look at [tainting](https://www.terraform.io/docs/commands/taint.html) before I put anything into production with these tools and I am slightly concerned about the state being local files, but there are [partial](https://www.terraform.io/docs/commands/remote.html), and [paid for](https://www.hashicorp.com/atlas.html) solutions to that. but given how excellent these tools appear to be I can live with these limitations!
