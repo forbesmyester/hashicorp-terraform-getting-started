@@ -3,7 +3,6 @@ variable "aws_access_key_id" {}
 variable "aws_secret_access_key" {}
 
 provider "aws" {
-    // I could not get profile to work here, falling back to this
     access_key = "${var.aws_access_key_id}"
     secret_key = "${var.aws_secret_access_key}"
     region = "us-east-1"
